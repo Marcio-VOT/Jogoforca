@@ -2,19 +2,23 @@ import React from "react";
 import styled from "styled-components";
 
 export default (props) => {
+  let erro = [];
   function adicionaLetra(a) {
     let array = [...props.chuteLetra];
 
     if (!array.includes(a)) {
       array = [...props.chuteLetra, a];
       if (!props.palavra.includes(a)) {
-        let erro = [...props.erros];
+        erro = [...props.erros];
         erro[0]++;
         props.setErros([...erro]);
       }
     }
     props.setChuteLetra(array);
     console.log(array);
+    if (erro[0] == 6) {
+      props.setChuteLetra(props.alfabeto);
+    }
   }
   return (
     <Container>

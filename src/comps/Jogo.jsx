@@ -10,27 +10,64 @@ import Forca6 from "../assets/forca6.png";
 const forca = [Forca0, Forca1, Forca2, Forca3, Forca4, Forca5, Forca6];
 
 export default (props) => {
+  let chute = [...props.chuteLetra];
+  let tamanho;
+  let contorleAcerto = 0;
   function definePalavra() {
     props.setChuteLetra([]);
+    tamanho = props.chuteLetra.length;
     let escolha =
       props.palavras[Math.floor(Math.random() * props.palavras.length - 1)];
     escolha = escolha.split("");
-    props.setPalavra(escolha);
+    props.setPalavra([...escolha]);
 
     console.log(escolha);
+  }
+  function reiniciaJogo() {
+    if (props.controle) {
+      //console.log(props.controle);
+      props.setPalavra([]);
+      props.setErros([0]);
+      props.setChutePalavra("");
+      props.setControle(false);
+      definePalavra();
+      contorleAcerto = 0;
+    } else return null;
+  }
+  const boo = props.erros == 6;
+  let corVitoria;
+  function CorGanhar() {
+    if (!boo && props.controle) {
+      props.setControle(true);
+      alert("a");
+      return "green";
+    }
+    return corVitoria;
+  }
+  function letraCerta(a) {
+    contorleAcerto++;
+
+    if (contorleAcerto == props.palavra.length && props.controle == false) {
+      props.setChuteLetra([...props.alfabeto]);
+      props.setControle(true);
+      contorleAcerto = 0;
+    }
+    return `${a} `;
   }
 
   return (
     <JogoStyled>
       <img src={forca[props.erros]} />
-      <button onClick={!props.palavra.length ? definePalavra : null}>
+      <button onClick={!props.palavra.length ? definePalavra : reiniciaJogo}>
         Escolher Palavras
       </button>
-      <div className="letras">
-        <h1>
-          {props.palavra.map((a) =>
-            props.chuteLetra.includes(a) ? `${a} ` : `_ `
-          )}
+      <div>
+        <h1
+          style={{
+            color: boo ? "red" : CorGanhar(),
+          }}
+        >
+          {props.palavra.map((a) => (chute.includes(a) ? letraCerta(a) : `_ `))}
         </h1>
       </div>
     </JogoStyled>

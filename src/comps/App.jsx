@@ -38,12 +38,14 @@ export default () => {
   const [erros, setErros] = React.useState([0]);
   const [chuteLetra, setChuteLetra] = React.useState(alfabeto);
   const [chutePalavra, setChutePalavra] = React.useState("");
+  const [controle, setControle] = React.useState(false);
 
   return (
     <>
       <GlobalStyle />
 
       <Jogo
+        alfabeto={alfabeto}
         palavras={palavras}
         palavra={palavra}
         setPalavra={setPalavra}
@@ -51,6 +53,10 @@ export default () => {
         chuteLetra={chuteLetra}
         setChuteLetra={setChuteLetra}
         chutePalavra={chutePalavra}
+        controle={controle}
+        setControle={setControle}
+        setChutePalavra={setChutePalavra}
+        setErros={setErros}
       />
       <Letras
         alfabeto={alfabeto}
