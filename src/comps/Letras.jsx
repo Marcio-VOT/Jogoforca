@@ -25,6 +25,13 @@ export default (props) => {
     <Container>
       {props.alfabeto.map((a) => (
         <Letra
+          disabled={
+            props.controle === false
+              ? props.chuteLetra.includes(a) === true
+                ? true
+                : null
+              : true
+          }
           data-test="letter"
           onClick={() => adicionaLetra(a)}
           style={{

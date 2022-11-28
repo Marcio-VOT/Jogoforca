@@ -22,11 +22,16 @@ export default (props) => {
     <ContainerChute>
       <div>Já sei a palavra !</div>
       <input
+        disabled={props.controle === false ? false : true}
         data-test="guess-input"
         value={segura}
         onChange={(event) => setSegura(event.target.value)}
       />
-      <button data-test="guess-button" onClick={recebeChute}>
+      <button
+        disabled={props.controle === false ? false : true}
+        data-test="guess-button"
+        onClick={recebeChute}
+      >
         Chutar
       </button>
     </ContainerChute>

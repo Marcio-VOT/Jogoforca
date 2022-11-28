@@ -15,6 +15,7 @@ export default (props) => {
   let contorleAcerto = 0;
   const [seguraPalavra, setSeguraPalavra] = React.useState("");
   function definePalavra() {
+    props.setControle(false);
     props.setChuteLetra([]);
     let escolha =
       props.palavras[Math.floor(Math.random() * props.palavras.length - 1)];
@@ -29,7 +30,7 @@ export default (props) => {
     props.setPalavra([]);
     props.setErros([0]);
     props.setChutePalavra("");
-    props.setControle(false);
+
     definePalavra();
     contorleAcerto = 0;
   }
@@ -52,7 +53,7 @@ export default (props) => {
       props.setControle(true);
       contorleAcerto = 0;
     }
-    return `${a} `;
+    return a;
   }
 
   return (

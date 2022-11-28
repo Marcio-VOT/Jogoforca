@@ -38,7 +38,7 @@ export default () => {
   const [erros, setErros] = React.useState([0]);
   const [chuteLetra, setChuteLetra] = React.useState(alfabeto);
   const [chutePalavra, setChutePalavra] = React.useState("");
-  const [controle, setControle] = React.useState(false);
+  const [controle, setControle] = React.useState(true);
 
   return (
     <>
@@ -59,6 +59,7 @@ export default () => {
         setErros={setErros}
       />
       <Letras
+        controle={controle}
         alfabeto={alfabeto}
         chuteLetra={chuteLetra}
         setChuteLetra={setChuteLetra}
