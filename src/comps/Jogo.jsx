@@ -73,7 +73,7 @@ export default (props) => {
             color: boo ? "red" : CorGanhar(),
           }}
         >
-          {props.palavra.map((a) => (chute.includes(a) ? letraCerta(a) : `_ `))}
+          {props.palavra.map((a) => (chute.includes(a) ? letraCerta(a) : `_`))}
         </h1>
       </div>
     </JogoStyled>
