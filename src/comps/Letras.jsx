@@ -16,7 +16,6 @@ export default (props) => {
     }
 
     props.setChuteLetra(array);
-    console.log(array);
     if (erro[0] == 6) {
       props.setChuteLetra(props.alfabeto);
     }

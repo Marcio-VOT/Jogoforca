@@ -11,7 +11,6 @@ const forca = [Forca0, Forca1, Forca2, Forca3, Forca4, Forca5, Forca6];
 
 export default (props) => {
   let chute = [...props.chuteLetra];
-  let chutePalavra = [...props.chutePalavra];
   let contorleAcerto = 0;
   const [seguraPalavra, setSeguraPalavra] = React.useState("");
   function definePalavra() {
@@ -20,11 +19,8 @@ export default (props) => {
     let escolha =
       props.palavras[Math.floor(Math.random() * props.palavras.length - 1)];
     setSeguraPalavra(escolha);
-    alert(seguraPalavra);
     escolha = escolha.split("");
     props.setPalavra([...escolha]);
-
-    console.log(escolha);
   }
   function reiniciaJogo() {
     props.setPalavra([]);
@@ -39,7 +35,6 @@ export default (props) => {
   function CorGanhar() {
     if (!boo && props.controle) {
       props.setControle(true);
-      alert("a");
       return "green";
     }
     return corVitoria;
