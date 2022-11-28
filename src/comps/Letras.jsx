@@ -14,6 +14,7 @@ export default (props) => {
         props.setErros([...erro]);
       }
     }
+
     props.setChuteLetra(array);
     console.log(array);
     if (erro[0] == 6) {
@@ -24,6 +25,7 @@ export default (props) => {
     <Container>
       {props.alfabeto.map((a) => (
         <Letra
+          data-test="letter"
           onClick={() => adicionaLetra(a)}
           style={{
             backgroundColor: props.chuteLetra.includes(a)
@@ -39,7 +41,7 @@ export default (props) => {
   );
 };
 
-const Letra = styled.p`
+const Letra = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

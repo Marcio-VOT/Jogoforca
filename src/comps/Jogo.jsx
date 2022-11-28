@@ -11,28 +11,27 @@ const forca = [Forca0, Forca1, Forca2, Forca3, Forca4, Forca5, Forca6];
 
 export default (props) => {
   let chute = [...props.chuteLetra];
-  let tamanho;
+  let chutePalavra = [...props.chutePalavra];
   let contorleAcerto = 0;
+  const [seguraPalavra, setSeguraPalavra] = React.useState("");
   function definePalavra() {
     props.setChuteLetra([]);
-    tamanho = props.chuteLetra.length;
     let escolha =
       props.palavras[Math.floor(Math.random() * props.palavras.length - 1)];
+    setSeguraPalavra(escolha);
+    alert(seguraPalavra);
     escolha = escolha.split("");
     props.setPalavra([...escolha]);
 
     console.log(escolha);
   }
   function reiniciaJogo() {
-    if (props.controle) {
-      //console.log(props.controle);
-      props.setPalavra([]);
-      props.setErros([0]);
-      props.setChutePalavra("");
-      props.setControle(false);
-      definePalavra();
-      contorleAcerto = 0;
-    } else return null;
+    props.setPalavra([]);
+    props.setErros([0]);
+    props.setChutePalavra("");
+    props.setControle(false);
+    definePalavra();
+    contorleAcerto = 0;
   }
   const boo = props.erros == 6;
   let corVitoria;
@@ -44,6 +43,7 @@ export default (props) => {
     }
     return corVitoria;
   }
+
   function letraCerta(a) {
     contorleAcerto++;
 
@@ -57,12 +57,17 @@ export default (props) => {
 
   return (
     <JogoStyled>
-      <img src={forca[props.erros]} />
-      <button onClick={!props.palavra.length ? definePalavra : reiniciaJogo}>
+      <img data-test="game-image" src={forca[props.erros]} />
+      <button
+        data-test="choose-word"
+        onClick={!props.palavra.length ? definePalavra : reiniciaJogo}
+      >
         Escolher Palavras
       </button>
       <div>
         <h1
+          data-test="word"
+          data-answer={seguraPalavra == "" ? "" : seguraPalavra}
           style={{
             color: boo ? "red" : CorGanhar(),
           }}

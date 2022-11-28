@@ -1,12 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 
-export default () => {
+export default (props) => {
+  let [segura, setSegura] = React.useState("");
+  function recebeChute() {
+    if (!props.controle) {
+      props.setChutePalavra(segura.split(""));
+      if (
+        segura.split("").toString() != props.palavra.toString() &&
+        segura != ""
+      ) {
+        props.setErros([6]);
+        props.setChuteLetra(props.alfabeto);
+      } else if (segura != "") {
+        props.setChuteLetra(props.alfabeto);
+      }
+    }
+    setSegura("");
+  }
   return (
     <ContainerChute>
       <div>Já sei a palavra !</div>
-      <input></input>
-      <button>Chutar</button>
+      <input
+        data-test="guess-input"
+        value={segura}
+        onChange={(event) => setSegura(event.target.value)}
+      />
+      <button data-test="guess-button" onClick={recebeChute}>
+        Chutar
+      </button>
     </ContainerChute>
   );
 };

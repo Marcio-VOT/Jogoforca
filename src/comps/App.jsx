@@ -65,8 +65,18 @@ export default () => {
         palavra={palavra}
         erros={erros}
         setErros={setErros}
+        chutePalavra={chutePalavra}
       />
-      <Chute chutePalavra={chutePalavra} setChutePalavra={setChutePalavra} />
+      <Chute
+        chutePalavra={chutePalavra}
+        setChutePalavra={setChutePalavra}
+        setErros={setErros}
+        palavra={palavra}
+        alfabeto={alfabeto}
+        setChuteLetra={setChuteLetra}
+        controle={controle}
+        setControle={setControle}
+      />
     </>
   );
 };
