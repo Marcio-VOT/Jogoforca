@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/projeto8-jogoforca/static/js/main.034b77ea.js",
+    "main.js": "/projeto8-jogoforca/static/js/main.21341b9d.js",
     "static/media/forca6.png": "/projeto8-jogoforca/static/media/forca6.afdf03495878c3267efe.png",
     "static/media/forca5.png": "/projeto8-jogoforca/static/media/forca5.bdf79337937f607f16af.png",
     "static/media/forca4.png": "/projeto8-jogoforca/static/media/forca4.2062be27168b92ff7995.png",
@@ -9,9 +9,9 @@
     "static/media/forca1.png": "/projeto8-jogoforca/static/media/forca1.cad67068764c8063ab83.png",
     "static/media/forca0.png": "/projeto8-jogoforca/static/media/forca0.00d24443942a50ed0ec0.png",
     "index.html": "/projeto8-jogoforca/index.html",
-    "main.034b77ea.js.map": "/projeto8-jogoforca/static/js/main.034b77ea.js.map"
+    "main.21341b9d.js.map": "/projeto8-jogoforca/static/js/main.21341b9d.js.map"
   },
   "entrypoints": [
-    "static/js/main.034b77ea.js"
+    "static/js/main.21341b9d.js"
   ]
 }
