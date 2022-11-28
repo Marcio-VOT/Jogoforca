@@ -4,6 +4,7 @@ import Jogo from "./Jogo";
 import Letras from "./Letras";
 import palavras from "../palavras";
 import GlobalStyle from "../GlobalStyle";
+import styled from "styled-components";
 
 export default () => {
   const alfabeto = [
@@ -58,26 +59,31 @@ export default () => {
         setChutePalavra={setChutePalavra}
         setErros={setErros}
       />
-      <Letras
-        controle={controle}
-        alfabeto={alfabeto}
-        chuteLetra={chuteLetra}
-        setChuteLetra={setChuteLetra}
-        palavra={palavra}
-        erros={erros}
-        setErros={setErros}
-        chutePalavra={chutePalavra}
-      />
-      <Chute
-        chutePalavra={chutePalavra}
-        setChutePalavra={setChutePalavra}
-        setErros={setErros}
-        palavra={palavra}
-        alfabeto={alfabeto}
-        setChuteLetra={setChuteLetra}
-        controle={controle}
-        setControle={setControle}
-      />
+      <Espaço>
+        <Letras
+          controle={controle}
+          alfabeto={alfabeto}
+          chuteLetra={chuteLetra}
+          setChuteLetra={setChuteLetra}
+          palavra={palavra}
+          erros={erros}
+          setErros={setErros}
+          chutePalavra={chutePalavra}
+        />
+        <Chute
+          chutePalavra={chutePalavra}
+          setChutePalavra={setChutePalavra}
+          setErros={setErros}
+          palavra={palavra}
+          alfabeto={alfabeto}
+          setChuteLetra={setChuteLetra}
+          controle={controle}
+          setControle={setControle}
+        />
+      </Espaço>
     </>
   );
 };
+const Espaço = styled.div`
+  margin-top: 70px;
+`;

@@ -11,7 +11,7 @@ const forca = [Forca0, Forca1, Forca2, Forca3, Forca4, Forca5, Forca6];
 
 export default (props) => {
   let chute = [...props.chuteLetra];
-  let contorleAcerto = 0;
+  let controleAcerto = 0;
   const [seguraPalavra, setSeguraPalavra] = React.useState("");
   function definePalavra() {
     props.setControle(false);
@@ -28,25 +28,25 @@ export default (props) => {
     props.setChutePalavra("");
 
     definePalavra();
-    contorleAcerto = 0;
+    controleAcerto = 0;
   }
   const boo = props.erros == 6;
   let corVitoria;
   function CorGanhar() {
     if (!boo && props.controle) {
       props.setControle(true);
-      return "green";
+      return "#27AE60";
     }
     return corVitoria;
   }
 
   function letraCerta(a) {
-    contorleAcerto++;
+    controleAcerto++;
 
-    if (contorleAcerto == props.palavra.length && props.controle == false) {
+    if (controleAcerto == props.palavra.length && props.controle == false) {
       props.setChuteLetra([...props.alfabeto]);
       props.setControle(true);
-      contorleAcerto = 0;
+      controleAcerto = 0;
     }
     return a;
   }
@@ -65,10 +65,10 @@ export default (props) => {
           data-test="word"
           data-answer={seguraPalavra == "" ? "" : seguraPalavra}
           style={{
-            color: boo ? "red" : CorGanhar(),
+            color: boo ? "#FF0000" : CorGanhar(),
           }}
         >
-          {props.palavra.map((a) => (chute.includes(a) ? letraCerta(a) : `_`))}
+          {props.palavra.map((a) => (chute.includes(a) ? letraCerta(a) : ` _`))}
         </h1>
       </div>
     </JogoStyled>
@@ -84,20 +84,37 @@ const JogoStyled = styled.div`
   button {
     position: absolute;
     display: flex;
-    text-align: center;
+    justify-content: center;
     align-items: center;
-    top: 0px;
-    right: 0px;
-    width: 100px;
+    text-align: center;
+    top: 89px;
+    right: 53px;
+    width: 200px;
     height: 60px;
     border-style: none;
-    border-radius: 5px;
-    background-color: #29be29;
+    background: #27ae60;
+    border-radius: 8px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #ffffff;
   }
   h1 {
     position: absolute;
     bottom: 0px;
     right: 0px;
     margin-right: 80px;
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 68px;
+    color: #000000;
+  }
+  img {
+    margin-top: 59px;
+    margin-left: 38px;
   }
 `;

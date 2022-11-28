@@ -35,8 +35,8 @@ export default (props) => {
           onClick={() => adicionaLetra(a)}
           style={{
             backgroundColor: props.chuteLetra.includes(a)
-              ? "gray"
-              : "lightgray",
+              ? "#9FAAB5"
+              : "#E1ECF4",
           }}
           key={a}
         >
@@ -51,17 +51,23 @@ const Letra = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  border-color: gray;
+  border-radius: 3px;
   border: 1px solid;
-  width: 50px;
-  height: 50px;
-  margin-left: 7px;
-  margin-top: 7px;
+  width: 40px;
+  height: 40px;
+  margin-left: 12px;
+  margin-top: 11px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #39739d;
 `;
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 65%;
+  width: 70%;
   margin-left: 15%;
 `;
